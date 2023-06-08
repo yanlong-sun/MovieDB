@@ -1,0 +1,35 @@
+.body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.layoutContainer {
+  width: 110rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 20% 80%;
+}
+
+.sideNav {
+  grid-row: 1/-1;
+  grid-column: 1/2;
+}
+
+.mainNav {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  padding: 0 4rem;
+}
+
+.main {
+  margin-top: 2rem;
+  grid-row: 2/3;
+  grid-column: 2/3;
+  padding: 0 4rem;
+}
+
+h1 {
+  font-size: 3.2rem;
+  margin-bottom: 4rem;
+}

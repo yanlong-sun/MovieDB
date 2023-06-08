@@ -1,0 +1,89 @@
+.image {
+  width: 15rem;
+  height: 15rem;
+  border-radius: 6px 6px 0 0;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.startYear,
+.ratings.span,
+.duration {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+.ratings,
+.duration {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.ratings span {
+  font-size: 1.2rem;
+}
+
+.star {
+  width: 1.5rem;
+  fill: var(--star-orange);
+}
+
+.operationBtn {
+  position: absolute;
+  width: 3rem;
+  right: -4px;
+  top: -2px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.bookMark {
+  fill: var(--star-orange);
+  color: var(--star-orange);
+}
+
+.bookMark:link,
+.bookMark:visited {
+  transition: all 0.3;
+}
+
+.bookMark:hover,
+.bookMark:active {
+  fill: var(--star-orange-darker);
+  color: var(--star-orange-darker);
+}
+
+.deleteBtn {
+  position: absolute;
+  width: 2rem;
+  right: -6px;
+  top: -5px;
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.delete {
+  fill: var(--btn-delete);
+}
+
+.delete:link,
+.delete:visited {
+  transition: all 0.3;
+}
+
+.delete:hover,
+.delete:active {
+  fill: var(--btn-delete-hover);
+}

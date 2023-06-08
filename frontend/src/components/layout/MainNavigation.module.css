@@ -1,0 +1,65 @@
+.navbar {
+  display: flex;
+  gap: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--main-color);
+  padding: 0 4rem;
+  margin-left: 20%;
+  height: 10rem;
+}
+
+/* seach */
+.serachCombo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.searchbox {
+  position: relative;
+}
+
+.inputArea {
+  height: 3rem;
+  width: 25rem;
+  outline: none;
+  border-radius: 6px;
+  border: 1px solid var(--text-color);
+  background-color: var(--background-color);
+  caret-color: var(--text-color);
+  padding-left: 2.8rem;
+}
+
+.searchIconContainer {
+  position: absolute;
+  left: 0.4rem;
+  top: 15%;
+  background-color: var(--background-color);
+}
+
+.searchIcon {
+  height: 2rem;
+  color: var(--text-color);
+}
+
+.option {
+  border: none;
+  background-color: var(--background-color);
+  border-radius: 6px;
+}
+
+.option:link,
+.option:visited {
+  transition: all 0.5s;
+}
+
+.option:hover,
+.option:active {
+  background-color: var(--btn-hover);
+}
+
+.optionBtn {
+  height: 3rem;
+  color: var(--text-color);
+}

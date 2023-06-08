@@ -1,0 +1,10 @@
+.card {
+  width: 15rem;
+  height: 20rem;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  position: relative;
+}

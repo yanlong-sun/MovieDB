@@ -1,0 +1,28 @@
+.checkbox {
+  height: 0;
+  width: 0;
+  /* visibility: hidden; */
+  display: none;
+}
+
+.slider {
+  cursor: pointer;
+  height: 3.1rem;
+  width: 6rem;
+  background-color: var(--text-color);
+  border-radius: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.icon {
+  fill: orange;
+  padding: 4px;
+}
+
+.hide {
+  visibility: hidden;
+}
+input:checked + slider {
+  background-color: var(--background-color);
+}

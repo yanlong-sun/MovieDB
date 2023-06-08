@@ -1,0 +1,26 @@
+.btn {
+  width: 4rem;
+  height: 4rem;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  background-color: var(--primary);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  z-index: 9999;
+}
+
+.btnHidden {
+  display: none;
+}
+
+.btn:link,
+.btn:visited {
+  transition: all 0.3s;
+}
+
+.btn:hover,
+.btn:active {
+  background-color: var(--second);
+}
