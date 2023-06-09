@@ -1,9 +1,16 @@
 const Movie = require("../models/movieModel");
+const APIFeatures = require("../utils/apiFeatures");
 
 // GET ALL
 exports.getAllMovies = async (req, res) => {
   try {
-    const movies = await Movie.find();
+    const features = new APIFeatures(Movie.find(), req.query)
+      .filter()
+      .sort()
+      .limitFields()
+      .pagination();
+
+    const movies = await Movie.find(features.query);
     res.status(200).json({
       status: "success",
       requestedAt: req.requestTime,

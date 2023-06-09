@@ -29,9 +29,10 @@ const importData = async () => {
       );
       totalMovie += data.length;
       await Movie.create(data);
-      console.log(`✅ ${batchNum + 1}/${totalBatch}: data.length imported`);
+      console.log(`✅ ${batchNum + 1}/${totalBatch}: ${data.length} imported`);
     } catch (err) {
       console.log("❌❌❌❌❌Error❌❌❌❌❌\n", err);
+      process.exit();
     }
   }
   console.log(`Total: ${totalMovie}`);
@@ -42,10 +43,10 @@ const deleteData = async () => {
   try {
     await Movie.deleteMany();
     console.log("✅ Movie collection has been cleaned");
-    process.exit();
   } catch (err) {
     console.log("❌❌❌❌❌Error❌❌❌❌❌\n", err);
   }
+  process.exit();
 };
 
 const command = process.argv[2];
