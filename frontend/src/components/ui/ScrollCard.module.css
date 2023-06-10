@@ -13,6 +13,7 @@
 
 .bar {
   display: flex;
+  height: fit-content;
   gap: 2rem;
   overflow: scroll;
   -ms-overflow-style: none;
@@ -20,13 +21,21 @@
   scroll-behavior: smooth;
 }
 
+/* .bar div {
+  height: 24rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
 .bar::-webkit-scrollbar {
   display: none;
 }
 
 .buttonContainerBack,
 .buttonContainerForward {
-  height: 20rem;
+  height: 17rem;
   width: 3rem;
   display: flex;
   align-items: center;
@@ -40,7 +49,7 @@
 .buttonContainerBack {
   position: absolute;
   left: 0;
-  top: 0;
+  top: 4rem;
 }
 
 .buttonContainerBackEnd {
@@ -50,7 +59,7 @@
 .buttonContainerForward {
   position: absolute;
   right: 0;
-  top: 0;
+  top: 4rem;
 }
 
 .buttonContainerForwardEnd {

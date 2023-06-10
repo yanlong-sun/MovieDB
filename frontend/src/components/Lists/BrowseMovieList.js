@@ -1,134 +1,42 @@
 import ScrollCards from "../ui/ScrollCards";
 import ItemList from "../items/ItemList";
+import { useEffect, useState } from "react";
 
 function BrowseMovieList() {
-  const dummyData = [
-    {
-      titleId: 0,
-      title: "John Wick: Chapter 3 - Parabellum",
-      isAdult: "true",
-      startYear: "2011",
-      runtimeMinutes: "120",
-      genres: "Action",
-      imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/8/80/NYC_wideangle_south_from_Top_of_the_Rock.jpg",
-      rating: "3",
-    },
-    {
-      titleId: 1,
-      title: "John Wick: Chapter 3 - Parabellum",
-      isAdult: "true",
-      startYear: "2013",
-      runtimeMinutes: "120",
-      genres: "Action",
-      imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/8/80/NYC_wideangle_south_from_Top_of_the_Rock.jpg",
-      rating: "3",
-    },
-    {
-      titleId: 2,
-      title: "John Wick: Chapter 3 - Parabellum",
-      isAdult: "true",
-      startYear: "2020",
-      runtimeMinutes: "120",
-      genres: "Action",
-      imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/8/80/NYC_wideangle_south_from_Top_of_the_Rock.jpg",
-      rating: "3",
-    },
+  const header = "Trending";
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedMovies, setLoadedMovies] = useState([]);
+  const resourceURL = "http://localhost:8000/api/v1/movies?page=100&limit=20";
+  useEffect(() => {
+    setIsLoading(true);
+    fetch(resourceURL)
+      .then((response) => {
+        return response.json();
+      })
+      .then((jsonData) => {
+        const data = jsonData.data.movies;
+        setIsLoading(false);
+        setLoadedMovies(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
-    {
-      titleId: 3,
-      title: "John Wick: Chapter 3 - Parabellum",
-      isAdult: "true",
-      startYear: "2021",
-      runtimeMinutes: "120",
-      genres: "Action",
-      imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/8/80/NYC_wideangle_south_from_Top_of_the_Rock.jpg",
-      rating: "3",
-    },
-    {
-      titleId: 4,
-      title: "John Wick: Chapter 3 - Parabellum",
-      isAdult: "true",
-      startYear: "2022",
-      runtimeMinutes: "120",
-      genres: "Action",
-      imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/8/80/NYC_wideangle_south_from_Top_of_the_Rock.jpg",
-      rating: "3",
-    },
-    {
-      titleId: 5,
-      title: "John Wick: Chapter 3 - Parabellum",
-      isAdult: "true",
-      startYear: "2023",
-      runtimeMinutes: "120",
-      genres: "Action",
-      imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/8/80/NYC_wideangle_south_from_Top_of_the_Rock.jpg",
-      rating: "3",
-    },
-    {
-      titleId: 6,
-      title: "John Wick: Chapter 3 - Parabellum",
-      isAdult: "true",
-      startYear: "2024",
-      runtimeMinutes: "120",
-      genres: "Action",
-      imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/8/80/NYC_wideangle_south_from_Top_of_the_Rock.jpg",
-      rating: "3",
-    },
-    {
-      titleId: 7,
-      title: "John Wick: Chapter 3 - Parabellum",
-      isAdult: "true",
-      startYear: "2025",
-      runtimeMinutes: "120",
-      genres: "Action",
-      imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/8/80/NYC_wideangle_south_from_Top_of_the_Rock.jpg",
-      rating: "3",
-    },
-    {
-      titleId: 8,
-      title: "John Wick: Chapter 3 - Parabellum",
-      isAdult: "true",
-      startYear: "2026",
-      runtimeMinutes: "120",
-      genres: "Action",
-      imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/8/80/NYC_wideangle_south_from_Top_of_the_Rock.jpg",
-      rating: "3",
-    },
-    {
-      titleId: 9,
-      title: "John Wick: Chapter 3 - Parabellum",
-      isAdult: "true",
-      startYear: "2027",
-      runtimeMinutes: "120",
-      genres: "Action",
-      imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/8/80/NYC_wideangle_south_from_Top_of_the_Rock.jpg",
-      rating: "3",
-    },
-    {
-      titleId: 10,
-      title: "John Wick: Chapter 3 - Parabellum",
-      isAdult: "true",
-      startYear: "2028",
-      runtimeMinutes: "120",
-      genres: "Action",
-      imageUrl:
-        "https://upload.wikimedia.org/wikipedia/commons/8/80/NYC_wideangle_south_from_Top_of_the_Rock.jpg",
-      rating: "3",
-    },
-  ];
+  if (isLoading) {
+    return (
+      <ScrollCards>
+        {header}
+        <div>
+          <h2> Loading...</h2>
+        </div>
+      </ScrollCards>
+    );
+  }
   return (
     <ScrollCards>
-      <ItemList data={dummyData} isDisplayBookmark="true" />
+      {header}
+      <ItemList data={loadedMovies} isDisplayBookmark="true" />
     </ScrollCards>
   );
 }

@@ -4,14 +4,13 @@ import { ReactComponent as Bookmarks } from "../../img/icons/bookmarks.svg";
 import { ReactComponent as Browse } from "../../img/icons/compass.svg";
 import { ReactComponent as Ribbon } from "../../img/icons/ribbon.svg";
 import { Link } from "react-router-dom";
-import TotopButton from "../other/ToTopButton";
 
 function SideNavigation() {
   return (
     <div className={classes.sideBar}>
       <div className={classes.logoContainer}>
         <Logo className={classes.logo} />
-        <span className={classes.logoName}>Movies</span>
+        <span className={classes.logoName}>MovieDB</span>
       </div>
       <div className={classes.menuContainer}>
         <h3 className={classes.sectionName}>Menu</h3>

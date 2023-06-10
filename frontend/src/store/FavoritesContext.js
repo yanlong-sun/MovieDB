@@ -19,13 +19,13 @@ export function FavoritesContextPorvieder(props) {
   // remove favorite movie handler
   function removeFavoritesHandler(movieID) {
     setUserfavorites((prevFavorites) => {
-      return prevFavorites.filter((movie) => movie.titleId !== movieID);
+      return prevFavorites.filter((movie) => movie.id !== movieID);
     });
   }
 
   // return if a movie is bookmarked
   function isMovieFavoritesHandler(movieID) {
-    return userFavorites.some((movie) => movie.titleId === movieID);
+    return userFavorites.some((movie) => movie.id === movieID);
   }
 
   const context = {

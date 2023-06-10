@@ -1,18 +1,18 @@
 .sideBar {
   display: flex;
-  gap: 4.8rem;
+  gap: 3.2rem;
   flex-direction: column;
   position: sticky;
   top: 0;
   height: 100vh;
-  padding-left: 5rem;
+  padding-left: 2rem;
 }
 
 /* logo */
 .logoContainer {
   display: flex;
   align-items: center;
-  height: 10rem;
+  height: 7rem;
   gap: 1rem;
 }
 
@@ -22,7 +22,7 @@
 }
 
 .logoName {
-  font-size: 2.4rem;
+  font-size: 2rem;
   font-weight: 700;
   color: var(--primary);
 }
@@ -35,9 +35,9 @@
 }
 
 .sectionName {
-  font-size: 2.4rem;
+  font-size: 1.8rem;
   font-weight: 600;
-  margin-bottom: 2.4rem;
+  margin-bottom: 2rem;
 }
 
 .menu,
@@ -45,7 +45,7 @@
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 2.8rem;
+  gap: 1rem;
 }
 
 .option {
@@ -59,7 +59,7 @@
 }
 
 .optionName {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 500;
 }
 .optionIcon {

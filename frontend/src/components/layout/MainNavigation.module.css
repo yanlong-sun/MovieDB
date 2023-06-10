@@ -6,7 +6,7 @@
   background-color: var(--main-color);
   padding: 0 4rem;
   margin-left: 20%;
-  height: 10rem;
+  height: 7rem;
 }
 
 /* seach */
@@ -21,8 +21,8 @@
 }
 
 .inputArea {
-  height: 3rem;
-  width: 25rem;
+  height: 2.5rem;
+  width: 20rem;
   outline: none;
   border-radius: 6px;
   border: 1px solid var(--text-color);
@@ -39,7 +39,7 @@
 }
 
 .searchIcon {
-  height: 2rem;
+  height: 1.5rem;
   color: var(--text-color);
 }
 
@@ -60,6 +60,6 @@
 }
 
 .optionBtn {
-  height: 3rem;
+  height: 2.5rem;
   color: var(--text-color);
 }

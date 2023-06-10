@@ -31,9 +31,9 @@ function ScrollCards(props) {
       containerNow.scrollTo({ left: newScrollLeft, behavior: "smooth" });
     }
   }
-
   return (
     <div className={classes.container}>
+      <h2 className={classes.header}>{props.children[0]}</h2>
       <button
         className={classes.buttonContainerBack}
         onClick={clickBackHandler}
@@ -42,7 +42,7 @@ function ScrollCards(props) {
         <Back className={classes.btnBack} />
       </button>
       <main className={classes.bar} ref={container}>
-        {props.children}
+        {props.children[1]}
       </main>
       <button
         className={classes.buttonContainerForward}

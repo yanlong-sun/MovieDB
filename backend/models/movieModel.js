@@ -25,20 +25,16 @@ const movieSchema = new mongoose.Schema({
   originalTitle: {
     type: String,
     trim: true,
-    require: [true, "A movie data must have the original title"],
   },
   language: {
     type: String,
     trim: true,
-    require: [true, "A movie data must have the language type"],
   },
   releaseYear: {
     type: Date,
-    require: [true, "A movie data must have the release year"],
   },
   releaseDate: {
     type: Date,
-    require: [true, "A movie data must have the release date"],
   },
   genres: [String],
   plot: {
@@ -54,30 +50,17 @@ const movieSchema = new mongoose.Schema({
     type: Boolean,
     require: [true, "A movie data must have adult attribute"],
   },
-  budget: {
-    type: Number,
-    require: [true, "A movie data must have the budget"],
-  },
-  revenue: {
-    type: Number,
-    require: [true, "A movie data must have the budrevenueget"],
-  },
-  homepage: {
-    type: String,
-    trim: true,
-    require: [true, "A movie data must have its homepage"],
-  },
-  status: {
-    type: String,
-    trim: true,
-    require: [true, "A movie data must have its status"],
-  },
+  budget: Number,
+  revenue: Number,
+  homepage: String,
+  status: String,
   mpaaRating: String,
   keywords: [String],
   countriesOfOrigin: [String],
   languages: [String],
   cast: [String],
   director: [String],
+
   production: String,
   awardsSummary: String,
   provider: [
@@ -123,14 +106,17 @@ const movieSchema = new mongoose.Schema({
   tmdbPopularity: {
     type: Number,
     require: [true, "A movie data must have its tmdbPopularity"],
+    default: 0,
   },
   tmdbRating: {
     type: Number,
     require: [true, "A movie data must have its tmdbRating"],
+    default: 0,
   },
   tmdbVotes: {
     type: Number,
     require: [true, "A movie data must have its tmdbVotes"],
+    default: 0,
   },
 
   // imdb
@@ -138,12 +124,13 @@ const movieSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
+  imdbRating: { type: Number, default: 0 },
+  imdbVotes: { type: Number, default: 0 },
 
+  // letterboxd
+  letterboxdScore: { type: Number, default: 0 },
+  letterboxdVotes: { type: Number, default: 0 },
   // custom
-  relevancyScore: {
-    type: Number,
-    default: 0,
-  },
   searchL: String,
 });
 
