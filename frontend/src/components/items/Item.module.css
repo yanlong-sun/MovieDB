@@ -1,53 +1,76 @@
 .imageContainer {
-  width: 14rem;
-  height: 17rem;
+  position: relative;
 }
-
 .image {
-  width: 14rem;
-  height: 17rem;
+  width: 10rem;
+  height: 15rem;
   border-radius: 6px;
-  overflow: hidden;
 }
 
-.title {
-  margin: 4px 3px 2px 3px;
-  font-size: 1.2rem;
-  font-weight: 600;
-  line-height: 1.2;
+.imageContainerBigger {
+  position: relative;
+}
+.imageBigger {
+  position: relative;
+  height: 25rem;
+  width: auto;
+  border-radius: 6px;
 }
 
+.image:link,
+.image:visited,
+.imageBigger:link,
+.imageBigger:visited {
+  transition: all 0.3s;
+}
+
+.image:hover,
+.image:active,
+.imageBigger:hover,
+.imageBigger:visited {
+  filter: contrast(50%);
+}
 .info {
-  margin: 4px 3px;
+  margin: 2px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  gap: 2px;
+  font-size: 1rem;
 }
 
-.ratings,
-.duration {
+.ratings {
   display: flex;
   align-items: center;
   gap: 4px;
 }
 
 .logos {
-  height: 1.5rem;
-  width: auto;
+  width: 2rem;
+  height: auto;
 }
 
-.ratings span {
-  font-size: 1.2rem;
-  font-weight: 500;
+.star {
+  height: 1.4rem;
+  fill: orange;
+}
+
+.title {
+  margin: 4px 3px 2px 3px;
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1;
+  overflow: hidden;
+  height: 2rem;
 }
 
 .operationBtn {
   position: absolute;
   width: 2rem;
   right: 0px;
-  top: -2px;
+  top: -1px;
   border: none;
   background-color: rgba(0, 0, 0, 0);
+  z-index: 999;
 }
 
 .bookMark {
@@ -69,10 +92,11 @@
 .deleteBtn {
   position: absolute;
   width: 2rem;
-  right: 0px;
-  top: -5px;
+  right: 1.2rem;
+  top: -1rem;
   border: none;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
+  z-index: 999;
 }
 
 .delete {

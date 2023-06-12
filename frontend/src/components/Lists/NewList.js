@@ -1,12 +1,12 @@
-import ScrollCards from "../ui/ScrollCards";
-import ItemList from "../items/ItemList";
+import NewItemList from "../items/NewItemList";
 import { useEffect, useState } from "react";
+import AutoScroll from "../ui/AutoScroll";
 
-function BrowseMovieList() {
-  const header = "Trending";
+function TrendingList() {
+  const header = "What's New";
   const [isLoading, setIsLoading] = useState(true);
   const [loadedMovies, setLoadedMovies] = useState([]);
-  const resourceURL = "http://localhost:8000/api/v1/movies?page=100&limit=20";
+  const resourceURL = "http://localhost:8000/api/v1/movies?page=10&limit=5";
   useEffect(() => {
     setIsLoading(true);
     fetch(resourceURL)
@@ -25,19 +25,20 @@ function BrowseMovieList() {
 
   if (isLoading) {
     return (
-      <ScrollCards>
+      <AutoScroll>
         {header}
         <div>
-          <h2> Loading...</h2>
+          <h2> Loading... </h2>
         </div>
-      </ScrollCards>
+      </AutoScroll>
     );
   }
+
   return (
-    <ScrollCards>
+    <AutoScroll>
       {header}
-      <ItemList data={loadedMovies} isDisplayBookmark="true" />
-    </ScrollCards>
+      <NewItemList data={loadedMovies} operationOption="bookmark" />
+    </AutoScroll>
   );
 }
-export default BrowseMovieList;
+export default TrendingList;

@@ -1,0 +1,98 @@
+.container {
+  width: 110rem;
+  height: 35rem;
+  border-radius: 6px;
+  position: relative;
+}
+
+.header {
+  margin: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.bar {
+  display: flex;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.bar::-webkit-scrollbar {
+  display: none;
+}
+
+.btnLeft,
+.btnRight,
+.btnContainerLeft,
+.btnContainerRight {
+  position: absolute;
+  height: 5rem;
+  width: 5rem;
+  top: 40%;
+  z-index: 999;
+  border: none;
+  background-color: transparent;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.btnLeft,
+.btnContainerLeft {
+  left: 0;
+}
+
+.btnRight,
+.btnContainerRight {
+  right: 0;
+}
+
+.btnLeft:link,
+.btnLeft:visited,
+.btnRight:link,
+.btnRight:visited {
+  transition: all 0.3s;
+}
+
+.btnLeft:hover,
+.btnLeft:active,
+.btnRight:hover,
+.btnRight:active {
+  color: var(--second);
+}
+
+.dots {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+  gap: 1rem;
+  height: 1.5rem;
+  border: none;
+  z-index: 999;
+}
+
+.dots > * {
+  width: 1.5rem;
+  height: 1.5rem;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.dots {
+  fill: var(--text-color-second);
+}
+.dots > *:linked,
+.dots > *:visited {
+  transition: all 0.3s;
+}
+
+.dots > *:hover,
+.dots > *:active {
+  fill: var(--second);
+}
+
+.activeDot {
+  fill: var(--primary);
+}

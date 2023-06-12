@@ -1,12 +1,33 @@
 .navbar {
   display: flex;
-  gap: 2rem;
-  justify-content: space-between;
   align-items: center;
   background-color: var(--main-color);
-  padding: 0 4rem;
-  margin-left: 20%;
+  justify-content: space-between;
+  padding: 0 2rem;
   height: 7rem;
+  position: sticky;
+  top: 0;
+  background-color: var(--navbar-bg);
+  z-index: 999;
+}
+
+/* logo */
+.logoContainer {
+  display: flex;
+  align-items: center;
+  height: 7rem;
+  gap: 1rem;
+}
+
+.logo {
+  width: 6rem;
+  fill: var(--primary);
+}
+
+.logoName {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--primary);
 }
 
 /* seach */
@@ -43,23 +64,57 @@
   color: var(--text-color);
 }
 
+/* // menu */
+
+.menu,
+.library {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .option {
-  border: none;
-  background-color: var(--background-color);
+  text-decoration: none;
+  color: var(--text-color-second);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.8rem 0.5rem;
   border-radius: 6px;
+}
+
+.optionName {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+.optionIcon {
+  height: 1.8rem;
+  fill: var(--text-color-second);
 }
 
 .option:link,
 .option:visited {
-  transition: all 0.5s;
+  transition: all 0.3;
 }
 
 .option:hover,
 .option:active {
-  background-color: var(--btn-hover);
+  background-color: var(--menu-option-hover);
 }
 
-.optionBtn {
-  height: 2.5rem;
-  color: var(--text-color);
+.optionName:link,
+.optionName:visited,
+.optionIcon:link,
+.optionIcon:visited {
+  transition: all 0.3;
+}
+
+.option:hover .optionName,
+.option:active .optionName {
+  color: var(--primary);
+}
+.option:hover .optionIcon,
+.option:active .optionIcon {
+  fill: var(--primary);
 }

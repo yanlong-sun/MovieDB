@@ -11,7 +11,7 @@ function FavoritesPage() {
   } else {
     content = (
       <ExpandedCard>
-        <ItemList data={favoriteCtx.favorites} displayBookMark="false" />
+        <ItemList data={favoriteCtx.favorites} operationOption="delete" />
       </ExpandedCard>
     );
   }

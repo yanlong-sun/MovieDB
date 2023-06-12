@@ -1,6 +1,6 @@
 .expandedContainer {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  justify-content: space-between;
+  grid-template-columns: repeat(8, 1fr);
+  column-gap: 0.5rem;
   row-gap: 1rem;
 }

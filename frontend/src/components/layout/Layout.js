@@ -1,7 +1,6 @@
 import MainNavigation from "./MainNavigation";
 import classes from "./Layout.module.css";
 import { useState } from "react";
-import SideNavigation from "./SideNavigation";
 import TotopButton from "../other/ToTopButton";
 
 function Layout(props) {
@@ -12,6 +11,7 @@ function Layout(props) {
     "--text-color": "#2A2B2E",
     "--text-color-second": "#3f4043",
     "--menu-option-hover": "#f2f2f2",
+    "--navbar-bg": "rgba(251, 251, 251, 0.9)",
     // no need change as theme changes
     "--btn-hover": "#e2e2e2",
     "--btn-delete": "#ff4d4d",
@@ -26,7 +26,8 @@ function Layout(props) {
     "--second": "#fc6f71",
     "--text-color": "#fbfbfb",
     "--text-color-second": "#7d7d7d",
-    "--menu-option-hover": "7d7d7d",
+    "--menu-option-hover": "#7d7d7d",
+    "--navbar-bg": "rgba(22, 22, 24, 0.9)",
     // no need change as theme changes
     "--btn-hover": "#e2e2e2",
     "--btn-delete": "#ff4d4d",
@@ -44,12 +45,9 @@ function Layout(props) {
   return (
     <div style={theme} className={classes.body}>
       <div className={classes.layoutContainer}>
-        <SideNavigation className={classes.sideNav} />
-        <div>
-          <MainNavigation handler={handler} className={classes.mainNav} />
-          <main className={classes.main}>{props.children}</main>
-          <TotopButton />
-        </div>
+        <MainNavigation handler={handler} className={classes.mainNav} />
+        <main className={classes.main}>{props.children}</main>
+        <TotopButton />
       </div>
     </div>
   );

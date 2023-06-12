@@ -1,10 +1,12 @@
 import classes from "./BrowseAll.module.css";
-import BrowseMovieList from "./BrowseMovieList";
+import NewList from "./NewList";
+import TrendingList from "./TrendingList";
 
 function BrowseAll() {
   return (
     <div className={classes.categoryList}>
-      <BrowseMovieList />
+      <NewList />
+      <TrendingList />
     </div>
   );
 }

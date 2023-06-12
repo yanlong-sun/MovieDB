@@ -1,10 +1,14 @@
 .card {
-  width: 15rem;
-  height: 24rem;
   border-radius: 6px;
   display: flex;
   flex-direction: column;
   background-color: var(--background-color);
   color: var(--text-color);
   position: relative;
+  background-color: transparent;
+}
+
+.card:link,
+.card:visited {
+  transition: all 0.3s;
 }

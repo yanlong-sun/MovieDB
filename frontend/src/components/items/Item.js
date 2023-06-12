@@ -5,24 +5,33 @@ import { ReactComponent as Unbookmark } from "../../img/icons/bookmark-outline.s
 import { ReactComponent as Delete } from "../../img/icons/close-circle.svg";
 import { ReactComponent as IMDB } from "../../img/logos/IMDB.svg";
 import { ReactComponent as TMDB } from "../../img/logos/TMDB.svg";
+import { ReactComponent as Star } from "../../img/icons/star.svg";
+
 import FavoritesContext from "../../store/FavoritesContext";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Item(props) {
+  const data = props.data;
+  const navigate = useNavigate();
+  function queryHandler() {
+    navigate(`/movie?id=${data.id}`);
+  }
+  // the option for bookmark or delete
   const favoriteCtx = useContext(FavoritesContext);
-  const isFavorites = favoriteCtx.isMovieFavorites(props.id);
+  const isFavorites = favoriteCtx.isMovieFavorites(data.id);
   function toggleIsFavoritesHandler() {
     if (isFavorites) {
       // unbookmark
-      favoriteCtx.removeFavorites(props.id);
+      favoriteCtx.removeFavorites(data.id);
     } else {
-      favoriteCtx.addFavorites(props);
+      favoriteCtx.addFavorites(data);
     }
   }
 
   let operationIcon;
-  if (props.isDisplayBookmark === "true") {
-    const content = favoriteCtx.isMovieFavorites(props.id) ? (
+  if (props.operationOption === "bookmark") {
+    const content = favoriteCtx.isMovieFavorites(data.id) ? (
       <Bookmark
         className={classes.bookMark}
         onClick={toggleIsFavoritesHandler}
@@ -34,38 +43,58 @@ function Item(props) {
       />
     );
     operationIcon = <button className={classes.operationBtn}>{content}</button>;
-  } else {
+  } else if (props.operationOption === "delete") {
     operationIcon = (
       <button className={classes.deleteBtn}>
         <Delete className={classes.delete} onClick={toggleIsFavoritesHandler} />
       </button>
     );
   }
-  return (
-    <Card>
-      {operationIcon}
-      <div className={classes.imageContainer}>
-        <img
-          className={classes.image}
-          src={props.posterUrl}
-          alt={props.title}
-          width={props.posterWidth}
-          height={props.posterHeight}
-        />
+
+  let content;
+  if (props.moreDetail === true) {
+    content = (
+      <div onClick={queryHandler}>
+        <div className={classes.imageContainerBigger}>
+          {operationIcon}
+          <img
+            className={classes.imageBigger}
+            src={data.posterUrl}
+            alt={data.title}
+            width={data.posterWidth}
+            height={data.posterHeight}
+          />
+        </div>
       </div>
-      <div className={classes.info}>
-        <div className={classes.ratings}>
+    );
+  } else {
+    content = (
+      <div onClick={queryHandler}>
+        <div className={classes.imageContainer}>
+          {operationIcon}
+          <img
+            className={classes.image}
+            src={data.posterUrl}
+            alt={data.title}
+            width={data.posterWidth}
+            height={data.posterHeight}
+          />
+        </div>
+        <div className={classes.title}>{data.title}</div>
+        <div className={classes.info}>
           <IMDB className={classes.logos} />
-          <span>{~~props.imdbRating * 10}%</span>
+          {data.imdbRating}
+          <Star className={classes.star} />({data.imdbVotes})
         </div>
-        <div className={classes.ratings}>
+        <div className={classes.info}>
           <TMDB className={classes.logos} />
-          <span>{~~props.tmdbRating * 10}%</span>
+          {data.tmdbRating}
+          <Star className={classes.star} />({data.tmdbVotes})
         </div>
       </div>
-      <div className={classes.title}>{props.title}</div>
-    </Card>
-  );
+    );
+  }
+  return <Card>{content}</Card>;
 }
 
 export default Item;
